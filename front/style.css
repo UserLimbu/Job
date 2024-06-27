@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.dashboardContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(255, 0, 0, 0.9); /* Red background with decreased transparency */
+    color: white;
+    overflow: hidden;
+    padding: 0; /* No initial padding */
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    cursor: pointer; /* Add pointer cursor to indicate clickability */
+}
+
+.dashboard {
+    display: none; /* Initially hide dashboard content */
+    flex-wrap: wrap; /* Wrap buttons to new line if space is insufficient */
+}
+.dashboard button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px; /* Increase spacing between buttons */
+    text-align: left;
+    border: none;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.dashboard button:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* White with increased transparency on hover */
+    color: black; /* Change text color on hover */
+}
+
+.open-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.5); /* White with reduced transparency */
+    font-size: 25px;
+    background-color: transparent; /* Transparent background */
+    border: none;
+}
+
+.open-btn:hover {
+    color: white; /* Full white color on hover */
+}
+
+.content {
+    transition: margin-top 0.3s ease; /* Smooth transition for margin-top */
+    padding: 20px;
+    margin-top: 0; /* Initially no margin-top */
+}

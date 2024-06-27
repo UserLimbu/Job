@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employer Page</title>
+    <style>
+        .dashboardContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0px; 
+            background-color: whitesmoke;
+            color: black;
+            overflow-x: hidden;
+           
+            padding-top: 60px;
+            z-index: 1;
+        }
+
+        .dashboard {
+            padding: 20px;
+        }
+
+        .open-btn {
+            position: fixed;
+            top: 20px;
+            left: 10px;
+            cursor: pointer;
+            z-index: 2;
+            color: black;
+            font-size: 20px;
+        }
+
+        .content {
+            margin-left: 300px; 
+            transition: margin-left 0.2s;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboardContainer" id="dashboardContainer">
+        <div class="dashboard">
+            <a href="#">Home</a><br><br>
+            <a href="#">Add jobs</a><br><br>
+            <a href="#">Settings</a><br><br>
+            <a href="#">About</a><br><br>
+            <a href="#">Log Out</a><br><br>
+            
+        </div>
+    </div>
+
+
+<div class="open-btn" onclick="toggleDashboard()">☰</div>
+
+<script>
+    function toggleDashboard() {
+        var dashboard = document.getElementById("dashboardContainer");
+        var content = document.querySelector(".content");
+
+        if (dashboard.style.width === "200px") {
+            dashboard.style.width = "0";
+            content.style.marginLeft = "0";
+        } else {
+            dashboard.style.width = "200px";
+            content.style.marginLeft = "200px";
+        }
+    }
+</script>
+
+
+</body>
+</html>

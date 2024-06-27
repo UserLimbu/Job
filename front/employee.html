@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .dashboardContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0px; /* Width of the dashboard */
+            background-color: whitesmoke;
+            color: black;
+            overflow-x: hidden;
+            transition: 0.2s;
+            padding-top: 60px;
+            z-index: 1;
+        }
+
+        .dashboard {
+            padding: 20px;
+        }
+
+        .open-btn {
+            position: fixed;
+            top: 20px;
+            left: 10px;
+            cursor: pointer;
+            z-index: 2;
+            color: black;
+            font-size: 20px;
+        }
+
+        .content {
+            margin-left: 300px; /* Ensure content doesn't overlap dashboard */
+            transition: margin-left 0.2s;
+            padding: 20px;
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main-container {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .big-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-right: 20px;
+        }
+
+        .side-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .add-detail-container {
+            margin-bottom: 20px;
+        }
+
+        .detail-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 200px;
+            overflow-y: auto;
+        }
+
+        .detail-item {
+            border-bottom: 1px solid #eee;
+            padding: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboardContainer" id="dashboardContainer">
+        <div class="dashboard">
+            <a href="#">Home</a><br><br>
+            <a href="#">Job History</a><br><br>
+            <a href="#">Settings</a><br><br>
+            <a href="#">About</a><br><br>
+            <a href="#">Log Out</a><br><br>
+        </div>
+    </div>
+
+    <div class="open-btn" onclick="toggleDashboard()">☰</div>
+
+    <div class="content">
+        <div class="main-container">
+            <div class="big-box">
+                <ul id="itemList">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+            </div>
+
+            <div class="side-container">
+                <div class="add-detail-container">
+                    <button onclick="addDetail()">Add Detail</button>
+                </div>
+
+                <div class="detail-box" id="detailBox">
+                    <!-- Details will be added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleDashboard() {
+            var dashboard = document.getElementById("dashboardContainer");
+            var content = document.querySelector(".content");
+
+            if (dashboard.style.width === "200px") {
+                dashboard.style.width = "0";
+                content.style.marginLeft = "0";
+            } else {
+                dashboard.style.width = "200px";
+                content.style.marginLeft = "200px";
+            }
+        }
+
+        function addDetail() {
+            var detailBox = document.getElementById("detailBox");
+            var newDetail = document.createElement("div");
+            newDetail.classList.add("detail-item");
+            newDetail.textContent = "New Detail: " + new Date().toLocaleString();
+            detailBox.appendChild(newDetail);
+        }
+    </script>
+
+</body>
+</html>
